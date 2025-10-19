@@ -1,4 +1,6 @@
+import screenmatch.calculos.CalculadoraDeTempo;
 import screenmatch.modelos.Filme;
+import screenmatch.modelos.Serie;
 
 public class Principal {
     public static void main(String[] args) {
@@ -13,5 +15,23 @@ public class Principal {
         meuFilme.avaliaFilme(10);
         System.out.println("Total de avaliações: " + meuFilme.getTotalDeAvaliacoes());
         System.out.println("Média de avaliação:  " + meuFilme.calculaMedia());
+
+
+        Serie serie = new Serie();
+        serie.setNome("Dexter");
+        serie.setAnoDeLancamento(2005);
+        serie.exibeFichaTecnica();
+        serie.setTemporadas(8);
+        serie.setEpisodiosPorTemporada(12);
+        serie.setMinutosPorEpisodio(55);
+
+        System.out.println("Duração da serie " + serie.getNome() + ": " + serie.getDuracaoEmMinutos() + " minutos");
+
+
+        CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
+        calculadora.adicionaTempoTotal(meuFilme);
+        calculadora.adicionaTempoTotal(serie);
+        System.out.println(calculadora.getTempototal());
+
     }
 }
