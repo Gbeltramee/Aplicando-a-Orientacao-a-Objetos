@@ -1,8 +1,11 @@
 import screenmatch.calculos.CalculadoraDeTempo;
+import screenmatch.calculos.FiltroRecomendacao;
+import screenmatch.modelos.Episodio;
 import screenmatch.modelos.Filme;
 import screenmatch.modelos.Serie;
 
 public class Principal {
+
     public static void main(String[] args) {
         Filme meuFilme = new Filme();
         meuFilme.setNome("Velozes e Furiosos");
@@ -32,6 +35,16 @@ public class Principal {
         calculadora.adicionaTempoTotal(meuFilme);
         calculadora.adicionaTempoTotal(serie);
         System.out.println(calculadora.getTempototal());
+
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+
+        filtro.Filtra(meuFilme);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setSerie(serie);
+        episodio.setTotalVisualizacoes(300);
+        filtro.Filtra(episodio);
 
     }
 }
